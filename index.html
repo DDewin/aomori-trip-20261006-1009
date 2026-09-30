@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東北 4 天 3 夜自駕遊路書 & 導航手冊</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0284c7;
+      --accent: #d97706;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #0369a1);
+      color: white;
+      padding: 28px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .trip-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .meta-badge {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .day-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .day-nav-btn {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary) !important;
+      text-decoration: none;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .day-nav-btn:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+    }
+
+    .day-section {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      page-break-after: always;
+      scroll-margin-top: 20px;
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .day-title {
+      font-size: 20px;
+      color: var(--primary);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .day-date {
+      font-size: 14px;
+      background: #eff6ff;
+      color: var(--secondary);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .hotel-box {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 14px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hotel-box strong {
+      color: #15803d;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: #cbd5e1;
+    }
+
+    .spot-card {
+      position: relative;
+      margin-bottom: 26px;
+      padding-left: 15px;
+      page-break-inside: avoid;
+    }
+
+    .spot-card::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--secondary);
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px var(--secondary);
+    }
+
+    .spot-card.food::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .spot-time {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 2px;
+    }
+
+    .spot-card.food .spot-time {
+      color: var(--accent);
+    }
+
+    .spot-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: #0284c7;
+      color: white !important;
+      text-decoration: none;
+      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: #0369a1;
+    }
+
+    .nav-btn.food-btn {
+      background: #d97706;
+    }
+    .nav-btn.food-btn:hover {
+      background: #b45309;
+    }
+
+    .spot-details {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .spot-details ul {
+      list-style-type: disc;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    .spot-details li {
+      margin-bottom: 4px;
+    }
+
+    .drive-info {
+      font-size: 12px;
+      background: #f1f5f9;
+      color: #64748b;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    /* ===== 照片排版：完整顯示原圖，不再裁切 ===== */
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    .img-grid .img-container {
+      margin-top: 0;
+    }
+
+    .img-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 時間軸內的照片突破左側縮排，佔滿整張卡片寬度 */
+    .spot-card > .img-container,
+    .spot-card > .img-grid {
+      margin-left: -35px;
+    }
+
+    /* 住宿框的照片左右貼齊外框，底部延伸成滿版 */
+    .hotel-box > .img-container {
+      margin: 14px -16px -14px -20px;
+    }
+
+    .hotel-box > .img-container .spot-img {
+      border-radius: 0 0 8px 0;
+      border: none;
+    }
+
+    .hotel-box > .img-container .img-caption {
+      padding: 0 16px 12px 20px;
+      background: #f0fdf4;
+    }
+
+    .spot-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+      background-color: #f1f5f9;
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .spot-img:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
+    }
+
+    .img-caption {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    /* 點圖放大檢視 */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 100;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: calc(100vh - 90px);
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .lightbox p {
+      color: #e2e8f0;
+      font-size: 14px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px;
+      }
+      .day-section {
+        padding: 18px 16px;
+      }
+      .img-grid {
+        grid-template-columns: 1fr;
+      }
+      .hotel-box > .img-container {
+        margin: 14px -16px -14px -20px;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+      .container {
+        max-width: 100%;
+      }
+      .day-nav {
+        display: none !important;
+      }
+      .day-section {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-after: always;
+      }
+      .spot-card {
+        page-break-inside: avoid;
+      }
+      .spot-img {
+        max-height: 230px;
+        width: auto;
+        max-width: 100%;
+        box-shadow: none;
+      }
+      .lightbox {
+        display: none !important;
+      }
+      .nav-btn {
+        border: 1px solid #0284c7;
+        color: #0284c7 !important;
+        background: transparent;
+      }
+      .nav-btn.food-btn {
+        border-color: #d97706;
+        color: #d97706 !important;
+      }
+    }
+    .img-fallback {
+      display: flex; align-items: center; justify-content: center;
+      height: 200px; border-radius: 10px; border: 1px dashed #cbd5e1;
+      background: #f1f5f9; color: #64748b; font-size: 13px;
+    }
+    .photo-credit { font-size: 12px; color: #64748b; text-align: center; margin: 8px 0 24px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>🚗 東北 4 天 3 夜自駕遊路書 & 導航手冊</h1>
+    <p>仙台出發 ‧ 弘前採果 ‧ 奧入瀨溪流 ‧ 青森港區 ‧ 八戶海鮮炭烤</p>
+    <div class="trip-meta">
+      <span class="meta-badge">📅 日期：10/6 (二) – 10/9 (五)</span>
+      <span class="meta-badge">🚘 行程：4 天 3 夜全自駕</span>
+      <span class="meta-badge">⏰ 步調：每日 10:00 輕鬆出發</span>
+    </div>
+
+    <!-- 快速跳轉按鈕 -->
+    <div class="day-nav">
+      <a href="#day1" class="day-nav-btn">📍 第一天 (10/6)</a>
+      <a href="#day2" class="day-nav-btn">📍 第二天 (10/7)</a>
+      <a href="#day3" class="day-nav-btn">📍 第三天 (10/8)</a>
+      <a href="#day4" class="day-nav-btn">📍 第四天 (10/9)</a>
+    </div>
+  </header>
+
+  <!-- DAY 1 -->
+  <div class="day-section" id="day1">
+    <div class="day-header">
+      <div class="day-title">(10/6) Day 1 ‧ 仙台出發 → 弘前市區</div>
+      <div class="day-date">10/6 (二)</div>
+    </div>
+
+    <div class="hotel-box">
+      <strong>🏨 第一晚住宿：ART HOTEL Hirosaki City（ART 弘前飯店）</strong><br>
+      • 停車：請停放於飯店特約停車場<br>
+      • 導航：<a href="https://www.google.com/maps/search/?api=1&query=ART+HOTEL+Hirosaki+City" target="_blank" class="nav-btn">📍 Google 地圖導航</a>
+      
+      <div class="img-container">
+        <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/9565/9565_1_l.jpg" referrerpolicy="no-referrer" alt="ART 弘前飯店" class="spot-img">
+        <span class="img-caption">📷 ART 弘前飯店 (ART HOTEL Hirosaki City)</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="spot-card">
+        <div class="spot-time">16:00</div>
+        <div class="spot-title">
+          1. 仙台五橋出發
+          <a href="https://www.google.com/maps/search/?api=1&query=仙台五橋" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>準時出發，預先檢查油量並設定國道/高速公路路線。</li>
+            <li>經東北自動車道一路北上至弘前，晚餐在休息站解決。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🛣️ 全程約 320 公里，純車程約 3.5 – 4 小時</div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">18:00 - 18:45</div>
+        <div class="spot-title">
+          2. 休息站晚餐：紫波 SA 或 前澤 SA（下行）
+          <a href="https://www.google.com/maps/search/?api=1&query=紫波SA+下り" target="_blank" class="nav-btn food-btn">📍 紫波 SA</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=前沢SA+下り" target="_blank" class="nav-btn food-btn">📍 前澤 SA</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>
+              <strong>首選：紫波 SA（下行）</strong><br>
+              離開仙台約 2 小時抵達，正好是晚餐時間。美食街與商店營業至 22:00，時間最從容。
+            </li>
+            <li>
+              <strong>備選：前澤 SA（下行）</strong><br>
+              約 1 小時 15 分鐘就會抵達，較早用餐。主打品牌和牛「前澤牛」，餐廳營業至 20:00（最後點餐 19:45），美食街 24 小時營業。
+            </li>
+            <li>用餐順便加油、上洗手間，之後一路開到弘前不再停。</li>
+          </ul>
+        </div>
+        <div class="img-grid">
+          <div class="img-container">
+            <img src="https://www.driveplaza.com/sapa/1040/1040346/2/data_nexco/1040346_2_main_visual.jpg" referrerpolicy="no-referrer" alt="紫波 SA（下行）" class="spot-img">
+            <span class="img-caption">📷 首選：紫波 SA（下行）</span>
+          </div>
+          <div class="img-container">
+            <img src="https://www.driveplaza.com/sapa/1040/1040301/2/data_nexco/1040301_2_main_visual.jpg" referrerpolicy="no-referrer" alt="前澤 SA（下行）" class="spot-img">
+            <span class="img-caption">📷 備選：前澤 SA（下行）</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">約 20:30</div>
+        <div class="spot-title">
+          3. 抵達 ART 弘前飯店 Check-in
+          <a href="https://www.google.com/maps/search/?api=1&query=ART+HOTEL+Hirosaki+City" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>停妥車輛後辦理入住手續，早點休息，明天 10:00 出發。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🛣️ 紫波 SA → 弘前約 150 公里，車程約 1 小時 45 分鐘</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-section" id="day2">
+    <div class="day-header">
+      <div class="day-title">(10/7) Day 2 ‧ 採果 → 千本鳥居 → 港區 → 夾娃娃</div>
+      <div class="day-date">10/7 (三)</div>
+    </div>
+
+    <div class="hotel-box">
+      <strong>🏨 第二晚住宿：ART Hotel Aomori（青森 ART 飯店）</strong><br>
+      • 停車：專屬平面停車場（800 日圓/晚）<br>
+      • 導航：<a href="https://www.google.com/maps/search/?api=1&query=ART+Hotel+Aomori" target="_blank" class="nav-btn">📍 Google 地圖導航</a>
+      
+      <div class="img-container">
+        <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/9221/9221_1_l.jpg" referrerpolicy="no-referrer" alt="ART Hotel Aomori" class="spot-img">
+        <span class="img-caption">📷 ART Hotel Aomori（青森 ART 飯店）</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="spot-card">
+        <div class="spot-time">10:20 - 12:00</div>
+        <div class="spot-title">
+          1. 弘前蘋果公園（採果）
+          <a href="https://www.google.com/maps/search/?api=1&query=弘前市りんご公園" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>至「蘋果之家」報名採果體驗（個人 9:00–16:00，每 30 分鐘一梯）。</li>
+            <li>品嚐園區限定「蘋果霜淇淋」，採買蘋果氣泡酒、蘋果乾等土產。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 從飯店開車約 6 公里，車程 15 - 20 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0234/234_102_l.jpg" referrerpolicy="no-referrer" alt="弘前蘋果公園" class="spot-img">
+          <span class="img-caption">📷 弘前蘋果公園 (採蘋果體驗)</span>
+        </div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">12:00 - 13:00</div>
+        <div class="spot-title">
+          2. 中餐嚴選推薦 (蘋果園區 / 順路商場)
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>
+              <strong>首選：蘋果公園「蘋果之家」餐廳</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=弘前市りんご公園+りんごの家" target="_blank" class="nav-btn food-btn">📍 導航</a><br>
+              採完果免移車直接用餐！必點「青森蘋果咖哩飯」、「蘋果醬豬排套餐」，甜鹹好吃。
+            </li>
+            <li>
+              <strong>備選：五所川原 ELM 購物中心美食街</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=ELM+五所川原" target="_blank" class="nav-btn food-btn">📍 導航</a><br>
+              開車往神社順路，停車場極大，內有著名的「津輕拉麵大道」與多樣和食定食。
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">14:00 - 15:00</div>
+        <div class="spot-title">
+          3. 高山稻荷神社
+          <a href="https://www.google.com/maps/search/?api=1&query=高山稲荷神社" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>漫步至日式庭園區，拍攝連綿山丘的巨龍造型「千本鳥居」。</li>
+            <li>參拜神池與庭園造景，15:00 準時出發前往青森市。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 13:00 從蘋果公園出發，北上約 48 公里，車程約 55 - 60 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0530/530_2_l.jpg" referrerpolicy="no-referrer" alt="高山稻荷神社" class="spot-img">
+          <span class="img-caption">📷 高山稻荷神社 (千本鳥居)</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">16:15 - 18:15</div>
+        <div class="spot-title">
+          4. 睡魔之家 WARASSE + A-FACTORY
+          <a href="https://www.google.com/maps/search/?api=1&query=ねぶたの家+ワ・ラッセ" target="_blank" class="nav-btn">📍 WARASSE</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=A-FACTORY" target="_blank" class="nav-btn">📍 A-FACTORY</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li><strong>先去 WARASSE（16:15 - 17:15）</strong>：10 月營業至 18:00，<strong>最後入館 17:00</strong>，務必先到這裡。近距離觀賞睡魔祭巨型燈籠山車。</li>
+            <li><strong>再逛 A-FACTORY（17:15 - 18:15）</strong>：就在隔壁步行可達，營業至 20:00。試飲青森蘋果氣泡酒，選購伴手禮與甜點。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 15:00 從高山稻荷神社出發，前往青森站周邊約 70 公里，車程約 1 小時 15 分鐘</div>
+        <div class="img-grid">
+          <div class="img-container">
+            <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/3698/3698_107_l.jpg" referrerpolicy="no-referrer" alt="睡魔之家 WARASSE" class="spot-img">
+            <span class="img-caption">📷 睡魔之家 WARASSE (祭典巨型燈籠)</span>
+          </div>
+          <div class="img-container">
+            <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/3697/3697_107_l.jpg" referrerpolicy="no-referrer" alt="A-FACTORY" class="spot-img">
+            <span class="img-caption">📷 A-FACTORY (港區蘋果文創館)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">18:30 - 20:00</div>
+        <div class="spot-title">
+          5. 青森晚餐：津輕じょっぱり漁屋酒場 青森本町店
+          <a href="https://www.google.com/maps/search/?api=1&query=津軽じょっぱり漁屋酒場+青森本町店" target="_blank" class="nav-btn food-btn">📍 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>位於飯店所在的本町商圈，主打青森新鮮海鮮、鄉土料理與地酒。</li>
+            <li>營業 16:45 – 24:00，全年無休，用完餐再開車去夾娃娃。</li>
+            <li>原定的「味の札幌 大西」<strong>週三公休</strong>且平日只營業到 18:00，這天無法前往。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">20:15 - 21:45</div>
+        <div class="spot-title">
+          6. Round 1 青森店 (夾娃娃機專區)
+          <a href="https://www.google.com/maps/search/?api=1&query=ラウンドワン+青森店" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>位於 Dream Town Ali 內，擁超過 300 台夾娃娃機。</li>
+            <li>主打最新動漫公仔、大型玩偶與限定零食景品，停車場寬廣。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 開車約 4.5 公里，車程約 10 - 12 分鐘</div>
+        <div class="img-container">
+          <img src="https://www.round1.co.jp/shop/tenpo/tempo-photo/aomori-aomori.jpg" referrerpolicy="no-referrer" alt="Round 1 青森店" class="spot-img">
+          <span class="img-caption">📷 Round 1 青森店 (大型夾娃娃機專區)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-section" id="day3">
+    <div class="day-header">
+      <div class="day-title">(10/8) Day 3 ‧ 廣田神社 → 八甲田纜車 → 奧入瀨溪流 → 十和田湖 → 十和田市</div>
+      <div class="day-date">10/8 (四)</div>
+    </div>
+
+    <div class="hotel-box">
+      <strong>🏨 第三晚住宿：Hotel Route-Inn Towada（十和田路飯店）</strong><br>
+      • 特色：附設「旅人の湯」人工溫泉大浴場、免費自助早餐、延遲退房至 11:00<br>
+      • 導航：<a href="https://www.google.com/maps/search/?api=1&query=ホテルルートイン十和田" target="_blank" class="nav-btn">📍 Google 地圖導航</a>
+      
+      <div class="img-container">
+        <img src="https://www.route-inn.co.jp/datas/cache/images/2025/09/10/1920x1000_ea1e9d427fb5664c32c517a73e421e58_9a949aa1792e130027c4df2734cca0f44db36321.jpg" referrerpolicy="no-referrer" alt="十和田 Route-Inn 飯店" class="spot-img">
+        <span class="img-caption">📷 十和田 Route-Inn 飯店 (Hotel Route-Inn Towada)</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="spot-card">
+        <div class="spot-time">08:45 - 09:15</div>
+        <div class="spot-title">
+          1. 廣田神社（退房後出發前參拜）
+          <a href="https://www.google.com/maps/search/?api=1&query=廣田神社+青森" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>參拜青森極具代表性的開運與病氣平癒古神社。</li>
+            <li>授與所 8:30 開門，可收藏青森限定「蘋果造型御守」與特色御朱印（授與所週三公休，所以排在週四早上）。</li>
+            <li>參拜者專用停車位只有 4 格，客滿時可停旁邊的長島地下停車場。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 從 ART Hotel Aomori 開車約 5 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/9699/9699_1_l.jpg" referrerpolicy="no-referrer" alt="廣田神社" class="spot-img">
+          <span class="img-caption">📷 廣田神社 (青森市古神社)</span>
+        </div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">09:45 - 10:00（可略過）</div>
+        <div class="spot-title">
+          2. 萱野茶屋：順路喝「三杯長壽茶」
+          <a href="https://www.google.com/maps/search/?api=1&query=萱野茶屋" target="_blank" class="nav-btn food-btn">📍 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>位在青森市往八甲田纜車的路上，不用繞路；營業 8:00 – 16:30。</li>
+            <li>免費喝傳說「一杯長壽三年」的長壽茶，停 15 分鐘就走。</li>
+            <li><strong>如果廣田神社延誤，直接略過，優先趕纜車。</strong></li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 廣田神社出發約 30 分鐘；茶屋到纜車站約 10 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0093/93_5_l.jpg" referrerpolicy="no-referrer" alt="萱野茶屋" class="spot-img">
+          <span class="img-caption">📷 萱野高原與萱野茶屋 (三杯長壽茶)</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">10:10 - 12:30</div>
+        <div class="spot-title">
+          3. 八甲田纜車
+          <a href="https://www.google.com/maps/search/?api=1&query=八甲田ロープウェー" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li><strong>排隊預估：約 30 – 60 分鐘，最壞情況 90 分鐘。</strong>10 月上旬是紅葉高峰，平日約 10 點起觀光巴士陸續抵達，越晚越擠。</li>
+            <li>時間分配：排隊最多 1 小時 + 單程搭乘約 10 分鐘 × 2 + 山頂散步 30 分鐘（山頂公園「八甲田ゴードライン」30 分鐘路線）。</li>
+            <li>俯瞰滿山紅葉與陸奧灣；山頂風大溫差大，請備妥保暖防風外套。</li>
+            <li>營業 9:00 – 16:20，每 15 – 20 分鐘一班；來回票大人 2,200 日圓。</li>
+          </ul>
+        </div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0122/122_5_l.jpg" referrerpolicy="no-referrer" alt="八甲田纜車" class="spot-img">
+          <span class="img-caption">📷 八甲田纜車 (紅葉全景纜車)</span>
+        </div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">13:15 - 13:45</div>
+        <div class="spot-title">
+          4. 午餐：石ヶ戸休息所
+          <a href="https://www.google.com/maps/search/?api=1&query=石ヶ戸休憩所" target="_blank" class="nav-btn food-btn">📍 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>奧入瀨溪流沿線唯一的休息所，有蕎麥麵、拉麵等輕食與商店；營業 8:30 – 16:30。</li>
+            <li>吃完直接從這裡出發散步，車子停在休息所停車場。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 纜車站出發約 30 公里山路，車程約 40 - 45 分鐘</div>
+        <div class="img-container">
+          <img src="https://cdn.prod.website-files.com/670e266deb04da21be33004d/670e266deb04da21be3305aa_611e30bde2325443dc09dfef_thumbnail.jpeg" referrerpolicy="no-referrer" alt="石ヶ戸休息所" class="spot-img">
+          <span class="img-caption">📷 石ヶ戸休息所 (溪流散步起點)</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">13:45 - 15:45</div>
+        <div class="spot-title">
+          5. 奧入瀨溪流精華段（步行 + 開車）
+          <a href="https://www.google.com/maps/search/?api=1&query=阿修羅の流れ" target="_blank" class="nav-btn">📍 阿修羅の流れ</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=銚子大滝" target="_blank" class="nav-btn">📍 銚子大瀑布</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li><strong>步行（13:45 - 15:15）</strong>：石ヶ戸 → 阿修羅の流れ（2 公里，約 30 分鐘）→ 雲井の滝（0.7 公里，約 15 分鐘），再原路走回石ヶ戸（約 45 分鐘）。這段是奧入瀨最經典的溪流景色。</li>
+            <li><strong>開車（15:15 - 15:45）</strong>：取車往上游開約 15 分鐘到銚子大瀑布，停車後下車欣賞溪流最大的瀑布（路邊停車位不多，稍等一下通常就有）。</li>
+            <li>不走全程 14 公里，只挑最精華的一段，體力負擔輕。</li>
+          </ul>
+        </div>
+        <div class="img-grid">
+          <div class="img-container">
+            <img src="https://aomori-tourism.com/lsc/upfile/spot/0001/0106/10106_1_l.jpg" referrerpolicy="no-referrer" alt="石ヶ戸至雲井の滝溪流段" class="spot-img">
+            <span class="img-caption">📷 石ヶ戸 → 阿修羅の流れ → 雲井の滝 步行段</span>
+          </div>
+          <div class="img-container">
+            <img src="https://aomori-tourism.com/lsc/api/photo/?src=4017" referrerpolicy="no-referrer" alt="銚子大瀑布" class="spot-img">
+            <span class="img-caption">📷 銚子大瀑布 (開車前往)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">16:05 - 16:50</div>
+        <div class="spot-title">
+          6. 十和田湖休屋
+          <a href="https://www.google.com/maps/search/?api=1&query=十和田湖+休屋" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>漫步湖畔公園，拍攝高村光雲大師設計的「乙女之像」。</li>
+            <li>欣賞傍晚湖面倒影與紅葉；10 月上旬日落約 17 點出頭，16:50 左右出發下山。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 銚子大瀑布出發約 15 公里，車程約 20 - 25 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0348/348_2_l.jpg" referrerpolicy="no-referrer" alt="十和田湖休屋" class="spot-img">
+          <span class="img-caption">📷 十和田湖休屋 (乙女之像)</span>
+        </div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">18:00 起</div>
+        <div class="spot-title">
+          7. 十和田晚餐：司バラ焼き大衆食堂
+          <a href="https://www.google.com/maps/search/?api=1&query=司バラ焼き大衆食堂" target="_blank" class="nav-btn food-btn">📍 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>
+              <strong>首選：司バラ焼き大衆食堂</strong><br>
+              B級美食冠軍發源店！鐵板炙燒甘甜洋蔥與秘製醬汁牛五花，極度下飯美味。晚上 17:30 – 22:30 營業（週一公休）。
+            </li>
+            <li>
+              <strong>備選：炭火燒肉 大風水 / 牛角 十和田店</strong><br>
+              國道旁寬敞燒肉店，停車方便且具獨立包廂，適合親子舒適享用燒肉。
+            </li>
+            <li>下山路段天黑後沒有路燈，請放慢車速、留意野生動物。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 沿國道 102/103 下山約 45 公里，車程約 55 - 60 分鐘</div>
+        <div class="img-container">
+          <img src="https://static.wixstatic.com/media/0e2307_5a79da30e79649a58930e91ca0b294a2.jpg" referrerpolicy="no-referrer" alt="司バラ焼き大衆食堂" class="spot-img">
+          <span class="img-caption">📷 司バラ焼き大衆食堂 (十和田醬燒牛肉)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-section" id="day4">
+    <div class="day-header">
+      <div class="day-title">(10/9) Day 4 ‧ 八戶黑尾鷗 → 種差海岸 → 海鮮炭烤 → 返程仙台</div>
+      <div class="day-date">10/9 (五)</div>
+    </div>
+
+    <div class="hotel-box">
+      <strong>🏁 終點目的地：仙台五橋</strong><br>
+      • 導航：<a href="https://www.google.com/maps/search/?api=1&query=仙台五橋" target="_blank" class="nav-btn">📍 Google 地圖返程導航</a>
+    </div>
+
+    <div class="timeline">
+
+      <div class="spot-card">
+        <div class="spot-time">10:50 - 11:50</div>
+        <div class="spot-title">
+          1. 蕪島神社
+          <a href="https://www.google.com/maps/search/?api=1&query=蕪島神社" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>登上海崖參拜神社，近距離觀賞數萬隻黑尾鷗群飛。</li>
+            <li>建議戴帽子或撐傘防鳥糞；若幸運被擊中可至社務所領取「發財紀念證書」。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 飯店出發約 38 公里，車程約 45 - 50 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0029/29_7_l.jpg" referrerpolicy="no-referrer" alt="蕪島神社" class="spot-img">
+          <span class="img-caption">📷 蕪島神社 (海崖神社與黑尾鷗)</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">12:00 - 12:50</div>
+        <div class="spot-title">
+          2. 種差海岸遊客中心
+          <a href="https://www.google.com/maps/search/?api=1&query=種差海岸インフォメーションセンター" target="_blank" class="nav-btn">📍 Google 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>漫步於直接延伸至太平洋岸邊的天然綠色大草坪上，感受海風與海岸絕景。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 沿海車程約 8.5 公里，約 10 - 12 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0030/30_8_l.jpg" referrerpolicy="no-referrer" alt="種差海岸遊客中心" class="spot-img">
+          <span class="img-caption">📷 種差海岸遊客中心 (太平洋天然草坪)</span>
+        </div>
+      </div>
+
+      <div class="spot-card food">
+        <div class="spot-time">13:20 - 14:45</div>
+        <div class="spot-title">
+          3. 八食中心「七輪村」自選海鮮炭烤中餐
+          <a href="https://www.google.com/maps/search/?api=1&query=八食センター" target="_blank" class="nav-btn food-btn">📍 導航</a>
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>先至「七輪村」登記座位，再至鮮魚市場挑選現採活干貝、生蠔、大蝦炭烤享用。</li>
+            <li>一次採購海產乾貨、煎餅汁、青森地酒與各式東北名產伴手禮。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🚗 市區車程約 15 公里，約 25 - 30 分鐘</div>
+        <div class="img-container">
+          <img src="https://aomori-tourism.com/lsc/upfile/spot/0000/0455/455_7_l.jpg" referrerpolicy="no-referrer" alt="八食中心" class="spot-img">
+          <span class="img-caption">📷 八食中心 (七輪村現烤海鮮市場)</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-time">14:45 - 18:30</div>
+        <div class="spot-title">
+          4. 返程：返回仙台五橋
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>由八戶 IC 駛上高速公路（東北自動車道）返回仙台五橋。</li>
+            <li>途中可停靠 SA 休息區短暫休息與更換駕駛。</li>
+          </ul>
+        </div>
+        <div class="drive-info">🛣️ 全程約 310 公里，車程約 3.5 – 4 小時</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<p class="photo-credit">景點照片來源：青森縣官方觀光網站 Amazing AOMORI、十和田奧入瀨觀光機構及各店家官方網站、NEXCO 東日本 ドラぷら</p>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="照片放大檢視">
+  <img id="lightbox-img" alt="">
+  <p id="lightbox-cap"></p>
+</div>
+
+<script>
+  // 點擊照片開啟放大檢視，再點一下或按 Esc 關閉
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbCap = document.getElementById('lightbox-cap');
+  document.querySelectorAll('img.spot-img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      var cap = img.parentElement.querySelector('.img-caption');
+      lbCap.textContent = cap ? cap.textContent : img.alt;
+      lb.classList.add('open');
+    });
+  });
+  lb.addEventListener('click', function () { lb.classList.remove('open'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') lb.classList.remove('open');
+  });
+
+  // 圖片載入失敗時，改以文字方塊取代破圖圖示
+  document.querySelectorAll('img.spot-img').forEach(function (img) {
+    img.addEventListener('error', function () {
+      var box = document.createElement('div');
+      box.className = 'img-fallback';
+      box.textContent = '圖片暫時無法載入';
+      img.replaceWith(box);
+    });
+  });
+</script>
+</body>
+</html>
