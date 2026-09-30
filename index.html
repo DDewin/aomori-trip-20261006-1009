@@ -438,6 +438,26 @@
       border-radius: 999px;
       margin: 8px 0 6px;
     }
+    .spot-card.checkout::before {
+      background: #16a34a;
+      box-shadow: 0 0 0 2px #16a34a;
+    }
+    .spot-card.checkout .spot-time {
+      color: #15803d;
+    }
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #22c55e;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin: 8px 6px 6px 0;
+    }
   </style>
 </head>
 <body>
@@ -471,7 +491,8 @@
     </div>
 
     <div class="hotel-box">
-      <strong>🏨 第一晚住宿：ART HOTEL Hirosaki City（ART 弘前飯店）</strong><br>
+      <strong>🏨 第一晚住宿：ART HOTEL Hirosaki City（ART 弘前飯店）</strong>
+      <div><span class="time-badge">🕒 入住 14:00｜🧳 退房 11:00｜本行程 10:00 退房出發</span></div>
       • 停車：請停放於飯店特約停車場<br>
       • 導航：<a href="https://www.google.com/maps/search/?api=1&query=ART+HOTEL+Hirosaki+City" target="_blank" class="nav-btn">📍 Google 地圖導航</a>
       
@@ -555,9 +576,9 @@
     </div>
 
     <div class="hotel-box">
-      <strong>🏨 第二晚住宿：HOTEL MYSTAYS Aomori Station（青森站前 Mystays 飯店）</strong><br>
+      <strong>🏨 第二晚住宿：HOTEL MYSTAYS Aomori Station（青森站前 Mystays 飯店）</strong>
+      <div><span class="time-badge">🕒 入住 15:00｜🧳 退房 11:00｜本行程 08:35 退房出發</span></div>
       • 位置：青森市新町 1-8-6，青森站前，步行可到 WARASSE、A-FACTORY<br>
-      • 入住 15:00／退房 11:00<br>
       • 停車：<strong>無自有停車場，由飯店安排附近露天合作停車場（700 日圓/晚）</strong>，部分停車場 16:00 起可停、隔天 10:00 前需開走；訂房後請向飯店確認停車場能否中途進出<br>
       • 導航：<a href="https://www.google.com/maps/search/?api=1&query=ホテルマイステイズ青森駅前" target="_blank" class="nav-btn">📍 Google 地圖導航</a>
       
@@ -568,6 +589,19 @@
     </div>
 
     <div class="timeline">
+
+      <div class="spot-card checkout">
+        <div class="spot-time">10:00</div>
+        <div class="spot-title">
+          🧳 Check-out：ART 弘前飯店
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>飯店規定最晚 11:00 退房；本行程 <strong>10:00 退房出發</strong>，前往蘋果公園。</li>
+            <li>停車場取車後出發，車程約 15 – 20 分鐘。</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="spot-card">
         <div class="spot-time">10:20 - 12:00</div>
@@ -702,6 +736,7 @@
 
     <div class="hotel-box">
       <strong>🏨 第三晚住宿：Hotel Route-Inn Towada（十和田路飯店）</strong>
+      <div><span class="time-badge">🕒 入住 15:00｜🧳 退房 11:00（延長方案）｜本行程 11:00 退房出發</span></div>
       <div><span class="perk-badge">🍳 含免費自助早餐｜6:30 – 9:00｜1 樓「花茶屋」</span></div>
       • 特色：附設「旅人の湯」人工溫泉大浴場、免費自助早餐、退房 11:00（已加購延長 1 小時方案，原為 10:00）<br>
       • 導航：<a href="https://www.google.com/maps/search/?api=1&query=ホテルルートイン十和田" target="_blank" class="nav-btn">📍 Google 地圖導航</a>
@@ -713,6 +748,19 @@
     </div>
 
     <div class="timeline">
+
+      <div class="spot-card checkout">
+        <div class="spot-time">08:35</div>
+        <div class="spot-title">
+          🧳 Check-out：青森站前 Mystays 飯店
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>飯店規定最晚 11:00 退房；本行程 <strong>08:35 退房出發</strong>，趕在廣田神社授與所 8:30 開門後參拜。</li>
+            <li>合作停車場有些要在 10:00 前開走，這個時間出發完全來得及。</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="spot-card">
         <div class="spot-time">08:45 - 09:15</div>
@@ -893,6 +941,19 @@
             <li><strong>住宿方案已含早餐</strong>，1 樓「花茶屋」餐廳，供應 6:30 – 9:00，<strong>9:00 準時結束</strong>。</li>
             <li>和洋式自助餐，今天午餐較晚（約 13:50），建議多吃一點。</li>
             <li>用完早餐可泡個大浴場再收行李，11:00 退房出發。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spot-card checkout">
+        <div class="spot-time">11:00</div>
+        <div class="spot-title">
+          🧳 Check-out：十和田 Route-Inn
+        </div>
+        <div class="spot-details">
+          <ul>
+            <li>已加購延長 1 小時方案，<strong>11:00 退房出發</strong>（原規定 10:00）。</li>
+            <li>前往八戶蕪島神社，車程約 45 – 50 分鐘。</li>
           </ul>
         </div>
       </div>
