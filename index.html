@@ -458,6 +458,13 @@
       border-radius: 999px;
       margin: 8px 6px 6px 0;
     }
+    .toll-box { background:#fffbeb; border-left:4px solid #d97706; padding:14px 16px; border-radius:0 8px 8px 0; margin:0 auto 24px; max-width:900px; font-size:14px; }
+    .toll-box h3 { margin:0 0 10px; color:#b45309; font-size:17px; }
+    .toll-table { width:100%; border-collapse:collapse; margin:8px 0; font-size:13.5px; }
+    .toll-table th, .toll-table td { border-bottom:1px solid #fde68a; padding:7px 6px; text-align:left; vertical-align:top; }
+    .toll-table td.num, .toll-table th.num { text-align:right; white-space:nowrap; }
+    .toll-table tr.total td { font-weight:700; color:#b45309; border-bottom:none; }
+    .toll-box ul { margin:8px 0 0; padding-left:20px; }
   </style>
 </head>
 <body>
@@ -472,6 +479,7 @@
       <span class="meta-badge">📅 日期：10/6 (二) – 10/9 (五)</span>
       <span class="meta-badge">🚘 行程：4 天 3 夜全自駕</span>
       <span class="meta-badge">🔑 租車：10/6 (二) 13:30 取車 → 10/10 (六) 11:30 還車</span>
+      <span class="meta-badge">🛣️ 高速費：合計約 ¥13,840（ETC／現金同價）</span>
       <span class="meta-badge">⏰ 步調：每日 10:00 輕鬆出發</span>
     </div>
 
@@ -481,8 +489,29 @@
       <a href="#day2" class="day-nav-btn">📍 第二天 (10/7)</a>
       <a href="#day3" class="day-nav-btn">📍 第三天 (10/8)</a>
       <a href="#day4" class="day-nav-btn">📍 第四天 (10/9)</a>
+      <a href="#tolls" class="day-nav-btn">🛣️ 高速費</a>
     </div>
   </header>
+
+  <!-- 高速公路費用 -->
+  <div class="toll-box" id="tolls">
+    <h3>🛣️ 高速公路費用總覽（普通車）</h3>
+    <table class="toll-table">
+      <tr><th>日期</th><th>路段</th><th class="num">距離</th><th class="num">費用</th></tr>
+      <tr><td>10/6</td><td>仙台宮城 IC → 大鰐弘前 IC（東北道，中途紫波 SA 晚餐不影響計費）</td><td class="num">約 314 km</td><td class="num">約 ¥7,060</td></tr>
+      <tr><td>10/7</td><td>弘前 → 高山稻荷 → 青森市區：走一般道與免費的津輕自動車道</td><td class="num">—</td><td class="num">¥0</td></tr>
+      <tr><td>10/8</td><td>八甲田 → 奧入瀨 → 十和田湖 → 十和田市：全程國道 103／102 號</td><td class="num">—</td><td class="num">¥0</td></tr>
+      <tr><td>10/9</td><td>十和田 → 八戶：一般道</td><td class="num">—</td><td class="num">¥0</td></tr>
+      <tr><td>10/9</td><td>八戶 IC → 仙台宮城 IC（八戶道 → 東北道）</td><td class="num">299 km</td><td class="num">¥6,780</td></tr>
+      <tr class="total"><td colspan="3">合計</td><td class="num">約 ¥13,840</td></tr>
+    </table>
+    <ul>
+      <li>10/6、10/9 都是平日，<strong>沒有 ETC 假日 7 折優惠</strong>，ETC 與現金同價；行駛時段也不適用深夜折扣。</li>
+      <li>租車若有 ETC 卡，進出收費站直接走 ETC 車道，費用於還車時一併結算。</li>
+      <li>10/7 若導航改走東北道「浪岡 IC → 青森 IC」，需另付約 ¥500，省時有限，建議走一般道。</li>
+      <li>¥6,780 為 NEXCO 東日本官方查詢值；¥7,060 依 NEXCO 計費公式以實際里程推算，實際以收費站為準。</li>
+    </ul>
+  </div>
 
   <!-- DAY 1 -->
   <div class="day-section" id="day1">
@@ -533,7 +562,7 @@
             <li>經東北自動車道一路北上至弘前，晚餐在休息站解決。</li>
           </ul>
         </div>
-        <div class="drive-info">🛣️ 全程約 320 公里，純車程約 3.5 – 4 小時</div>
+        <div class="drive-info">🛣️ 全程約 320 公里，純車程約 3.5 – 4 小時｜高速費：仙台宮城 IC → 大鰐弘前 IC 約 ¥7,060</div>
       </div>
 
       <div class="spot-card food">
@@ -1099,7 +1128,7 @@
             <li>途中可停靠 SA 休息區短暫休息與更換駕駛，預計 19:00 – 19:30 抵達仙台。</li>
           </ul>
         </div>
-        <div class="drive-info">🛣️ 全程約 310 公里，車程約 3.5 – 4 小時</div>
+        <div class="drive-info">🛣️ 全程約 310 公里，車程約 3.5 – 4 小時｜高速費：八戶 IC → 仙台宮城 IC ¥6,780</div>
       </div>
 
       <div class="spot-card checkout">
